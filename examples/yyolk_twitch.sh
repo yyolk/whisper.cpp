@@ -74,7 +74,7 @@ fi
 echo "Piping from streamlink url=$url model=$model step=$step threads=$threads"
 if [ $url == "https://twitch*" ]; then
 	streamlink $url best -O 2>/dev/null | ffmpeg -loglevel quiet -i - -y -probesize 32 -y -ar 16000 -ac 1 -acodec pcm_s16le /tmp/whisper-live0.wav &
-else
+elif [ $url != "*.wav" ]; then
 	ffmpeg -loglevel quiet -i $url -y -probesize 32 -y -ar 16000 -ac 1 -acodec pcm_s16le /tmp/whisper-live0.wav &
 fi
 
