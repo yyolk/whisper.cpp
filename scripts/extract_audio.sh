@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+
+INPUT_FILENAME="$1"
+INPUT_EXTENSION="${INPUT_FILENAME##*.}"
+INPUT_STEM="${INPUT_FILENAME%.*}"
+OUTPUT_WAV="$(basename "$INPUT_FILENAME" .$INPUT_EXTENSION)".wav
+
+ffmpeg -i "$INPUT_FILENAME" -vn -ac 1 -ar 16K "${OUTPUT_WAV}"
