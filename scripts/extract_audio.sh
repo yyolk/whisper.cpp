@@ -5,4 +5,4 @@ INPUT_EXTENSION="${INPUT_FILENAME##*.}"
 INPUT_STEM="${INPUT_FILENAME%.*}"
 OUTPUT_WAV="$(basename "$INPUT_FILENAME" .$INPUT_EXTENSION)".wav
 
-ffmpeg -i "$INPUT_FILENAME" -vn -ac 1 -ar 16K "${OUTPUT_WAV}"
+ffmpeg -i "$INPUT_FILENAME" -vn -ac 2 -ar 16K "${OUTPUT_WAV}"
